@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
-import BlogDetail from './pages/BlogDetail'
+import PostDetail from './pages/PostDetail'
+import CreatePost from './pages/CreatePost'
 
 // shared components
 import Navbar from './components/Navbar'
@@ -19,7 +20,8 @@ function App() {
             <Route exact path="/"><Home /></Route>
             <Route path="/signup"><Signup /></Route>
             <Route path="/login"><Login /></Route>
-            <Route path="/blog/:id"><BlogDetail /></Route>
+            <Route to="/create"><CreatePost /></Route>
+            <Route path="/post/:id"><PostDetail /></Route>
           </Switch>
         </div>
       </BrowserRouter>
