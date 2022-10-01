@@ -9,15 +9,15 @@ export default function Signup() {
 	  <form className="form">
 		  <div class="form-control">
 			  <label>Username</label>
-			  <input type="text" placeholder="Enter username"/>
+			  <input type="text" placeholder="Enter username" required/>
 		  </div>
       <div class="form-control">
         <label>Email</label>
-        <input type="email" placeholder="example@mail.com"/>
+        <input type="email" placeholder="example@mail.com" required/>
       </div>
       <div class="form-control">
         <label>Password</label>
-        <input type="password" placeholder="Password"/>
+        <input type="password" placeholder="Password" required/>
       </div>
       <button>Sign up</button>
 	  </form>

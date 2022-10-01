@@ -5,13 +5,12 @@
 .navbar{
   max-width: 1200px;
   margin: 0 auto;
-
   padding: 10px;
   display: flex;
   justify-content: space-between;
 } 
 
-.navbar a{
+.dropdown-content a, .navbar-title{
   text-decoration: none;
   color: black;
   padding: 10px;
@@ -26,7 +25,7 @@
   align-items: center;
 }
 
-.navbar .action-links button{
+.navbar .action-links button, .btn-create{
   margin-right: 5px;
   background-color: #fff;
   color: black;
@@ -37,7 +36,8 @@
   transition: all ease .3s;
 }
 
-.navbar .action-links button:hover{
+
+.navbar .action-links button:hover, .btn-create:hover{
   background-color:#8e44ad;
   color: white;
   border-radius: 8px;

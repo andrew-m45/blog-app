@@ -1,0 +1,35 @@
+.recommended-posts{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recommended-posts h3{
+  font-size: 20px;
+  color: #555;
+}
+
+.post{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: .5rem;
+}
+
+.post .chip{
+  font-size: .7rem;
+  color: skyblue;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  width: fit-content;
+  text-transform: capitalize;
+}

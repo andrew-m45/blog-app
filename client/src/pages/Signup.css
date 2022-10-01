@@ -54,4 +54,10 @@
 	margin-top: 20px;
 	width: 100%;
 	cursor: pointer;
+	transition: all ease .3s;
+
+}
+
+.form button:hover{
+	opacity: .9;
 }

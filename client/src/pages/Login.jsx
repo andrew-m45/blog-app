@@ -10,11 +10,11 @@ export default function Login() {
 	  <form className="form">
 		  <div class="form-control">
 			  <label>Username</label>
-			  <input type="text" placeholder="Enter username"/>
+			  <input type="text" placeholder="Enter username" required/>
 		  </div>
       <div class="form-control">
         <label>Password</label>
-        <input type="password" placeholder="Password"/>
+        <input type="password" placeholder="Password" required/>
       </div>
       <button>Login</button>
 	  </form>

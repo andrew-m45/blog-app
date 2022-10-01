@@ -1,0 +1,64 @@
+.post-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-item .post-item-cover{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: .5rem;
+}
+
+.post-item .chip{
+  font-size: .7rem;
+  color: skyblue;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  width: fit-content;
+  text-transform: capitalize;
+}
+
+.post-item h3{
+  margin: .5rem 0 1rem;
+  flex: 1;
+}
+
+.post-item-desc{
+  position: relative;
+  font-size: .8rem;
+  padding-right: .6rem;
+  color: #a9a9a9;
+}
+
+.post-item footer{
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.post-item-link{
+  color: black;
+}
+
+.post-item-author p{
+  font-size: .6rem;
+  color: #a9a9a9;
+  font-weight: 600;
+}
+
+.cta-container{
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  font-size: .8rem;
+}
+
+.cta-container .icon-post{
+  margin-left: 8px;
+  color: skyblue;
+}
