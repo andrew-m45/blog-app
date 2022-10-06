@@ -1,7 +1,8 @@
 import './Login.css'
 import { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+
+import { AuthContext } from '../context/authContext'
 
 export default function Login() {
   // holds input field values
@@ -14,6 +15,9 @@ export default function Login() {
   // redirect
   const history = useHistory()
 
+  // extract login function from conxtext
+  const { login } = useContext(AuthContext)
+
   // update userDetails object on change
   const handleInputChange = (e) => {
     setUserDetails(prevState => ({...prevState, [e.target.name]: e.target.value}))
@@ -24,14 +28,13 @@ export default function Login() {
 
     // send request to auth route
     try {
-      await axios.post('/auth/login', userDetails)
+      await login(userDetails)
       // redirect to login page
       setTimeout(() => {
-        history.push('/login')
+        history.push('/')
       }, 3000)
       setError(null);
     } catch (err) {
-      console.log(err)
       setError(err.response.data.msg)
     }
   }

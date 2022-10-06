@@ -1,6 +1,6 @@
 const db = require('../db');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 const userSignUp = (req, res) => {
   // check if user aldready exists
@@ -87,23 +87,34 @@ const userLogin = (req, res) => {
     // create jwt to authenticate user & send token to store as cookie
     const token = jwt.sign({ id: result[0].id }, "jwtkey");
     // user information to send to client exclude password hash
-    const { password, ...userDetails } = result[0]
-    res
-      .cookie("access_token", token, {
-        expires: new Date(Date.now() + 9999999),
-        httpOnly: false
-      }).status(200).json({
-        error: "",
-        msg: "User logged in",
-        success: true,
-        userDetails
-      })
+    const { password, ...userDetails } = result[0];
 
+    res.cookie("access_token", token, {
+      httpOnly: true,
+      maxAge: 9000,
+      overWrite: true
+    }).status(200).json({
+      error: "",
+      msg: "User logged in",
+      success: true,
+      userDetails
+    });
+
+  });
+}
+
+const userLogout = (req, res) => {
+  // clear jwt token
+  res.clearCookie("access_token").status(200).json({
+    error: "",
+    msg: "User logged out",
+    success: true,
   });
 }
 
 
 module.exports = {
   userSignUp,
-  userLogin
+  userLogin,
+  userLogout
 }

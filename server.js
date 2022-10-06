@@ -2,12 +2,10 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-const mysql = require('mysql');
 const cookieParser = require('cookie-parser');
 
 // routes
 const authRoutes = require('./routes/auth');
-
 
 // initialize express app
 const app = express();
@@ -15,12 +13,10 @@ const app = express();
 // logger
 app.use(morgan('dev'));
 
-
 // JSON, CORS & cookie-parser middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-
 
 // route handlers
 app.use('/api/auth', authRoutes);
