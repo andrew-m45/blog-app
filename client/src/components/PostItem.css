@@ -38,7 +38,7 @@
   display: flex;
   align-items: center;
   margin-top: 1rem;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .post-item-link{
