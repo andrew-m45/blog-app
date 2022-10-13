@@ -9,6 +9,7 @@ import moment from 'moment'
 export default function EditPost() {
   // extract post id from url
   const { id } = useParams()
+  
   const [title, setTitle] = useState()
   const [category, setCategory] = useState('')
   const [img, setImg] = useState(null)

@@ -6,11 +6,13 @@ import axios from 'axios'
 import moment from 'moment'
 
 export default function CreatePost() {
+  // store form input values
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
   const [img, setImg] = useState(null)
   const [body, setBody] = useState('') 
 
+  // image upload function
   const imgUpload = async () => {
     try {
       // create form data object
@@ -25,6 +27,7 @@ export default function CreatePost() {
     }
   }
 
+  // send form details to DB
   const handleSubmit = async (e) => {
     e.preventDefault();
     

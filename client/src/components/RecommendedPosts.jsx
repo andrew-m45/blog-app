@@ -7,7 +7,8 @@ import axios from 'axios'
 
 export default function RecommendedPosts({category}) {
   const [posts, setPosts] = useState([])
-  const cat = category
+
+  // get all related posts based on category
   useEffect (() => {
     const fetchData = async () => {
       try {

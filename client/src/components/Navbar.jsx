@@ -6,6 +6,7 @@ import { AuthContext } from '../context/authContext'
 
 
 export default function Navbar() {
+  // extract session user & logout function
   const { currentUser, logout } = useContext(AuthContext)
   
   return (

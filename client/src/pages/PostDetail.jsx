@@ -19,13 +19,12 @@ export default function PostDetail() {
   // redirect
   const history = useHistory()
 
-  // fetch post from DB
+  // fetch single post by id
   useEffect (() => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`/posts/${id}`)
         setPost(res.data.posts)
-        // console.log(res.data)
       } catch (error) {
         console.log(error)
       }
@@ -44,12 +43,6 @@ export default function PostDetail() {
       console.log(error)
     }
   } 
-
-  // parse html to string
-  const getHtml = (html) => {
-    const h = new DOMParser().parseFromString(html, "text/html")
-    return h
-  }
 
   return (
     <div className='post-detail'>
