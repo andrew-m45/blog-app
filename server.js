@@ -1,8 +1,8 @@
 // npm dependencies
 const express = require('express');
-const cors = require('cors');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const cookieParser = require('cookie-parser')
 
 // routes
 const authRoutes = require('./routes/auth');
@@ -17,7 +17,29 @@ app.use(morgan('dev'));
 // JSON, CORS & cookie-parser middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // file destination 
+    cb(null, 'client/public/uploads')
+  },
+  filename: function (req, file, cb) {
+    // specify filename
+    cb(null, Date.now() + file.originalname)
+  }
+})
+
+// config multer diskStorage
+const upload = multer({ storage });
+
+// file upload route
+app.post('/api/upload', upload.single('file'), function (req, res) {
+  const file = req.file;
+  console.log(file)
+  // return filename
+  res.status(200).json(file.filename);
+})
 
 // route handlers
 app.use('/api/auth', authRoutes);

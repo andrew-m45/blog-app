@@ -8,7 +8,6 @@ import { AuthContext } from '../context/authContext'
 export default function Navbar() {
   const { currentUser, logout } = useContext(AuthContext)
   
-
   return (
     <div className='navbar-wrapper'>
       <div className="navbar">
@@ -31,8 +30,8 @@ export default function Navbar() {
         </div>
         {currentUser ? (
           <>
-          <button onClick={logout}>Logout</button>
-          <Link to="/create"><button>Create Post</button></Link>
+            <button onClick={logout}>Logout</button>
+            <Link to="/create"><button>Create Post</button></Link>
           </>
         ) : ("")}
       </div>

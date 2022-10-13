@@ -8,7 +8,7 @@ const userSignUp = (req, res) => {
 
   db.query(sqlQuery, [req.body.email, req.body.username], (err, result) => {
     if (err) {
-      return res.json({
+      return res.status(500).json({
         error: err,
         msg: "error",
         success: false
@@ -32,7 +32,7 @@ const userSignUp = (req, res) => {
 
     db.query(sqlQuery, values, (err, result) => {
       if (err) {
-        return res.json({
+        return res.status(500).json({
           error: err,
           msg: "error",
           success: false
@@ -56,7 +56,7 @@ const userLogin = (req, res) => {
 
   db.query(sqlQuery, [req.body.username], (err, result) => {
     if (err) {
-      return res.json({
+      return res.status(500).json({
         error: err,
         msg: "error",
         success: false
@@ -90,8 +90,6 @@ const userLogin = (req, res) => {
     const { password, ...userDetails } = result[0];
 
     res.cookie("access_token", token, {
-      httpOnly: true,
-      maxAge: 9000,
       overWrite: true
     }).status(200).json({
       error: "",

@@ -25,8 +25,7 @@ export default function PostDetail() {
       try {
         const res = await axios.get(`/posts/${id}`)
         setPost(res.data.posts)
-        console.log(post.username)
-        console.log(res)
+        // console.log(res.data)
       } catch (error) {
         console.log(error)
       }
@@ -46,10 +45,16 @@ export default function PostDetail() {
     }
   } 
 
+  // parse html to string
+  const getHtml = (html) => {
+    const h = new DOMParser().parseFromString(html, "text/html")
+    return h
+  }
+
   return (
     <div className='post-detail'>
       <div className='post-section'>
-        <img src={post.img} alt={post.img} />
+        <img src={`../uploads/${post.img}`} alt={`../uploads/${post.img}`} />
         <div className="post-header">
           <div className="post-author">
             <h4>{post.username}</h4>
@@ -57,16 +62,16 @@ export default function PostDetail() {
           </div>
           {currentUser?.username === post.username && (
             <div className="post-user-actions">
-              <Link to={`/edit/${post.id}`}><MdEdit className='post-cta'/></Link>
+              <Link to={`/edit/${post.id}`} state={post}><MdEdit className='post-cta'/></Link>
               <MdDelete onClick={() => handleDelete(post.id)} className='post-cta'/>
             </div>
           )}
         </div>
         <h2>{post.title}</h2>
-        {post.body}
+        <div dangerouslySetInnerHTML={{  __html: post.body }}></div>
       </div>
       <div className='sidebar-section'>
-        <RecommendedPosts />
+        <RecommendedPosts category={post.category}/>
       </div>
     </div>
   )
