@@ -2,7 +2,7 @@
 
 ### ⚡️ Features
 
-- Create, update, edit and delete posts
+- Create, update and delete posts
 - User login and registration
 - Display recommended posts by category
 
